@@ -15,9 +15,7 @@ namespace model_test.Models
         public int CustomerId { get; set; }
         [ForeignKey("CustomerId")]
         public Customer Customer { get; set; }
-        public int ProductId { get; set; }
-        [ForeignKey("ProductId")]
-        public Product Product { get; set; }
+        public ICollection<Product> Products { get; set; }
 
     }
 }

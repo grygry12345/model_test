@@ -8,6 +8,6 @@ namespace model_test.Models
         public string Name { get; set; }
         public string Password { get; set; }
 
-        public ICollection<Order> Order { get; set;}
+        public ICollection<Order> Orders { get; set;}
     }
 }
