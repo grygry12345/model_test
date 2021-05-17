@@ -5,8 +5,8 @@ namespace model_test.Models
     {
         public int Id { get; set; }
         public string Name {get; set; }
-        public string Type { get; set; }
-        public bool IsActive { get; set; }
-        public int Speed {get; set; }
+        public int ProductId { get; set; }
+        public Product ProductType { get; set; }
+        public WorkCenterOperation WorkCenterOperation { get; set; }
     }
 }

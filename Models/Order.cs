@@ -15,7 +15,11 @@ namespace model_test.Models
         public int CustomerId { get; set; }
         [ForeignKey("CustomerId")]
         public Customer Customer { get; set; }
+<<<<<<< HEAD
         public ICollection<Product> Products { get; set; }
+=======
+>>>>>>> parent of 354d828 (Simpler Data Model)
 
+        public ICollection<OrderItem> OrderItem { get; set; }
     }
 }
