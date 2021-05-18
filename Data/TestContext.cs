@@ -15,10 +15,11 @@ namespace model_test.Data
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Operation> Operations { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<SubProduct> SubProducts { get; set; }
+        public DbSet<SubProductTree> SubProductTrees { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<WorkCenter> WorkCenters { get; set; }
         public DbSet<WorkCenterOperation> WorkCenterOperations { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
 
     }
 }

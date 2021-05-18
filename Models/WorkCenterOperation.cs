@@ -10,6 +10,7 @@ namespace model_test.Models
         [ForeignKey("WorkCenterId")]
         public WorkCenter WorkCenter { get; set; }
         public int OperationId { get; set; }
+        [ForeignKey("OperationId")]
         public Operation Operation { get; set; }
     }
 }

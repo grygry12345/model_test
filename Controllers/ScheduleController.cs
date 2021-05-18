@@ -12,47 +12,47 @@ namespace model_test.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SubProductController : ControllerBase
+    public class ScheduleController : ControllerBase
     {
         private readonly TestContext _context;
 
-        public SubProductController(TestContext context)
+        public ScheduleController(TestContext context)
         {
             _context = context;
         }
 
-        // GET: api/SubProduct
+        // GET: api/Schedule
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SubProduct>>> GetSubProducts()
+        public async Task<ActionResult<IEnumerable<Schedule>>> GetSchedules()
         {
-            return await _context.SubProducts.ToListAsync();
+            return await _context.Schedules.ToListAsync();
         }
 
-        // GET: api/SubProduct/5
+        // GET: api/Schedule/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SubProduct>> GetSubProduct(int id)
+        public async Task<ActionResult<Schedule>> GetSchedule(int id)
         {
-            var subProduct = await _context.SubProducts.FindAsync(id);
+            var schedule = await _context.Schedules.FindAsync(id);
 
-            if (subProduct == null)
+            if (schedule == null)
             {
                 return NotFound();
             }
 
-            return subProduct;
+            return schedule;
         }
 
-        // PUT: api/SubProduct/5
+        // PUT: api/Schedule/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSubProduct(int id, SubProduct subProduct)
+        public async Task<IActionResult> PutSchedule(int id, Schedule schedule)
         {
-            if (id != subProduct.Id)
+            if (id != schedule.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(subProduct).State = EntityState.Modified;
+            _context.Entry(schedule).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace model_test.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SubProductExists(id))
+                if (!ScheduleExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace model_test.Controllers
             return NoContent();
         }
 
-        // POST: api/SubProduct
+        // POST: api/Schedule
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<SubProduct>> PostSubProduct(SubProduct subProduct)
+        public async Task<ActionResult<Schedule>> PostSchedule(Schedule schedule)
         {
-            _context.SubProducts.Add(subProduct);
+            _context.Schedules.Add(schedule);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSubProduct", new { id = subProduct.Id }, subProduct);
+            return CreatedAtAction("GetSchedule", new { id = schedule.Id }, schedule);
         }
 
-        // DELETE: api/SubProduct/5
+        // DELETE: api/Schedule/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteSubProduct(int id)
+        public async Task<IActionResult> DeleteSchedule(int id)
         {
-            var subProduct = await _context.SubProducts.FindAsync(id);
-            if (subProduct == null)
+            var schedule = await _context.Schedules.FindAsync(id);
+            if (schedule == null)
             {
                 return NotFound();
             }
 
-            _context.SubProducts.Remove(subProduct);
+            _context.Schedules.Remove(schedule);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool SubProductExists(int id)
+        private bool ScheduleExists(int id)
         {
-            return _context.SubProducts.Any(e => e.Id == id);
+            return _context.Schedules.Any(e => e.Id == id);
         }
     }
 }
